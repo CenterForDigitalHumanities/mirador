@@ -1,9 +1,12 @@
 language: node_js
-sudo: false
 node_js:
-- '5'
-- 'v6.10.3'
-before_install:
-- npm install
+  - 'lts/*'
+install:
+  - npm install -g codecov
+
+before_script:
+  - npm install
+
 script:
-- npm run travis
+  - npm test
+  - codecov
